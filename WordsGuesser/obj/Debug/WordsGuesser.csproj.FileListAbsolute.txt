@@ -6,3 +6,14 @@ D:\Jakub\OneDrive\Pulpit\Programowanie\.NET\WordsGuesser\WordsGuesser\obj\Debug\
 D:\Jakub\OneDrive\Pulpit\Programowanie\.NET\WordsGuesser\WordsGuesser\obj\Debug\WordsGuesser.csproj.CoreCompileInputs.cache
 D:\Jakub\OneDrive\Pulpit\Programowanie\.NET\WordsGuesser\WordsGuesser\obj\Debug\WordsGuesser.exe
 D:\Jakub\OneDrive\Pulpit\Programowanie\.NET\WordsGuesser\WordsGuesser\obj\Debug\WordsGuesser.pdb
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\bin\Debug\WordsGuesser.exe.config
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\bin\Debug\WordsGuesser.exe
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\bin\Debug\WordsGuesser.pdb
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\bin\Debug\Newtonsoft.Json.dll
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\bin\Debug\Newtonsoft.Json.xml
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.csproj.AssemblyReference.cache
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.csproj.SuggestedBindingRedirects.cache
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.csproj.CoreCompileInputs.cache
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.csproj.CopyComplete
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.exe
+D:\Jakub\OneDrive\Pulpit\Pracka\Projekty GitHub\words-guesser\WordsGuesser\obj\Debug\WordsGuesser.pdb

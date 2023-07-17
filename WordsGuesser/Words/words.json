@@ -1,0 +1,102 @@
+﻿[
+    {
+        "value": "portugal",
+        "category": "countries"
+    },
+    {
+        "value": "australia",
+        "category": "countries"
+    },
+    {
+        "value": "switzerland",
+        "category": "countries"
+    },
+    {
+        "value": "germany",
+        "category": "countries"
+    },
+    {
+        "value": "italy",
+        "category": "countries"
+    },
+    {
+        "value": "yuan",
+        "category": "currencies"
+    },
+    {
+        "value": "euro",
+        "category": "currencies"
+    },
+    {
+        "value": "dollar",
+        "category": "currencies"
+    },
+    {
+        "value": "yen",
+        "category": "currencies"
+    },
+    {
+        "value": "pound",
+        "category": "currencies"
+    },
+    {
+        "value": "giraffe",
+        "category": "animals"
+    },
+    {
+        "value": "capybara",
+        "category": "animals"
+    },
+    {
+        "value": "elephant",
+        "category": "animals"
+    },
+    {
+        "value": "snake",
+        "category": "animals"
+    },
+    {
+        "value": "turtle",
+        "category": "animals"
+    },
+    {
+        "value": "tomato",
+        "category": "vegetables"
+    },
+    {
+        "value": "potato",
+        "category": "vegetables"
+    },
+    {
+        "value": "cucumber",
+        "category": "vegetables"
+    },
+    {
+        "value": "carrot",
+        "category": "vegetables"
+    },
+    {
+        "value": "asparagus",
+        "category": "vegetables"
+    },
+    {
+        "value": "watermelon",
+        "category": "fruits"
+    },
+    {
+        "value": "banana",
+        "category": "fruits"
+    },
+    {
+        "value": "apple",
+        "category": "fruits"
+    },
+    {
+        "value": "orange",
+        "category": "fruits"
+    },
+    {
+        "value": "mango",
+        "category": "fruits"
+    }
+]

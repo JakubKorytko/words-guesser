@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WordsGuesser.Words;
 
 namespace WordsGuesser
 {
@@ -16,7 +17,7 @@ namespace WordsGuesser
                 Console.WriteLine("WordsGuesser");
                 Console.ResetColor();
 
-                string[] rnd = Words.randomWord();
+                string[] rnd = WordsList.randomWord();
 
                 string word = rnd[0];
                 string category = rnd[1];
@@ -42,7 +43,7 @@ namespace WordsGuesser
                     var info = new Dictionary<string, string>()
                     {
                     {"wordLength", word.Length.ToString()},
-                    {"board", Words.generateBoard(current)},
+                    {"board", WordsList.generateBoard(current)},
                     {"category", category},
                     {"guesses_left", (available_guesses - misses).ToString()},
                     };
