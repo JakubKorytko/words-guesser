@@ -1,8 +1,0 @@
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\obj\Debug\Zadanie 2.csproj.AssemblyReference.cache
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\obj\Debug\Zadanie 2.csproj.SuggestedBindingRedirects.cache
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\obj\Debug\Zadanie 2.csproj.CoreCompileInputs.cache
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\bin\Debug\Zadanie 2.exe.config
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\bin\Debug\Zadanie 2.exe
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\bin\Debug\Zadanie 2.pdb
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\obj\Debug\Zadanie 2.exe
-D:\Jakub\OneDrive\Pulpit\Matematyka Dyskretna - Wolfram Cloud i algorytmy\Zadanie 2\Zadanie 2\obj\Debug\Zadanie 2.pdb
