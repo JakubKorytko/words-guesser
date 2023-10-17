@@ -11,7 +11,7 @@ namespace WordsGuesser.Words
         {
             get
             {
-                JArray parsedFile = JArray.Parse(File.ReadAllText(@"./Words/words.json"));
+                JArray parsedFile = JArray.Parse(File.ReadAllText(@"./words.json"));
                 return parsedFile.ToObject<Word[]>();
             }
         }
