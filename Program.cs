@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using WordsGuesser;
 using WordsGuesser.Words;
 
 namespace WordsGuesser
@@ -15,15 +17,65 @@ namespace WordsGuesser
         }
     }
 
+    public class GameData
+    {
+        public string Word { get; private set;  }
+        public string Category { get; private set; }
+
+        public int Guesses { get; set; }
+        public int AvailableGuesses { get; private set; }
+
+        public char[] Characters { get; private set; }
+        public int[] CharacterCodes { get; private set; }
+        public int[] CharacterCodesSorted { get; private set; }
+
+        public List<int> Guessed { get; set; }
+        public List<int> Missed { get; private set; }
+
+        public char[] CurrentState { get; private set; }
+        public int[] CurrentStateCodes { get; private set; }
+
+        public GameData(string _word, string _category, int _available_guesses)
+        {
+            Word = _word;
+            Category = _category;
+            AvailableGuesses = _available_guesses;
+
+            Guesses = 0;
+
+            Characters = Word.ToCharArray();
+            CharacterCodes = Unicode.convertTo(Characters);
+            CurrentState = Enumerable.Repeat('_', Characters.Length).ToArray();
+
+            Guessed = new List<int>();
+            Missed = new List<int>();
+            CharacterCodesSorted = MergeSort.runSort((int[])CharacterCodes.Clone());
+
+            CurrentState = Enumerable.Repeat('_', CharacterCodes.Length).ToArray();
+            CurrentStateCodes = Unicode.convertTo(CurrentState);
+        }
+
+        public Dictionary<string, string> GetTextGameInfo()
+        {
+            return new Dictionary<string, string>()
+            {
+                {"wordLength", Word.Length.ToString()},
+                {"board", WordsList.generateBoard(CurrentState)},
+                {"category", Category},
+                {"guesses_left", (AvailableGuesses - Missed.Count).ToString()},
+            };
+        }
+    }
+
     internal class Game
     {
 
         public static void Start()
         {
-            int play = 1;
+            bool play = true;
             bool equals;
 
-            while (play == 1)
+            while (play)
             {
                 equals = false;
 
@@ -35,35 +87,23 @@ namespace WordsGuesser
                 string word = rnd[0];
                 string category = rnd[1];
 
-                equals = PlayGame(equals, word, category);
+                equals = PlayGame(equals, word, category, 6);
 
-                play = Interface.End(equals, word);
+                play = Interface.End(equals, word) != 2;
             }
         }
 
-        static bool PlayGame(bool equals, string word, string category)
+        static bool PlayGame(bool equals, string word, string category, int available_guesses)
         {
-            int available_guesses = 6;
 
-            int guesses = 0;
+            GameData data = new GameData(word, category, available_guesses);
 
-            char[] chars = word.ToCharArray();
-
-            List<int> guessed = new List<int>();
-            List<int> missed = new List<int>();
-
-            int[] chars_codes = Unicode.convertTo(chars);
-            int[] chars_codes_sorted = MergeSort.runSort((int[])chars_codes.Clone());
-
-            char[] current = Enumerable.Repeat('_', chars.Length).ToArray();
-            int[] current_codes = Unicode.convertTo(current);
-
-            while (!equals && available_guesses - missed.Count > 0)
+            while (!equals && data.AvailableGuesses - data.Missed.Count > 0)
             {
 
-                var info = CreateGameInfo(current, word, category, missed, available_guesses);
+                Dictionary<string, string> info = data.GetTextGameInfo();
 
-                bool isChar = GetUserGuess(info, missed, out char letter);
+                bool isChar = GetUserGuess(info, data.Missed, out char letter);
 
                 if (!isChar)
                 {
@@ -74,7 +114,7 @@ namespace WordsGuesser
                 int letter_code = (int)letter;
 
 
-                bool already_guessed = BinarySearch.Find(guessed.ToArray(), 0, guesses - 1, letter_code) != -1;
+                bool already_guessed = BinarySearch.Find(data.Guessed.ToArray(), 0, data.Guesses - 1, letter_code) != -1;
 
                 if (already_guessed)
                 {
@@ -82,21 +122,21 @@ namespace WordsGuesser
                     continue;
                 }
 
-                UpdateGuessedLetters(ref guessed, ref guesses, letter_code);
+                UpdateGuessedLetters(data, letter_code);
 
-                int index = BinarySearch.Find(chars_codes_sorted, 0, word.Length - 1, letter_code);
+                int index = BinarySearch.Find(data.CharacterCodesSorted, 0, word.Length - 1, letter_code);
 
                 if (index == -1)
                 {
-                    missed.Add(letter_code);
+                    data.Missed.Add(letter_code);
                     Interface.Error("No letter in the password!");
                     continue;
                 }
 
                 int[] all_occurences;
 
-                UpdateCurrentWord(current, current_codes, letter,
-                chars_codes_sorted, word, ref equals, chars_codes, index,
+                UpdateCurrentWord(data.CurrentState, data.CurrentStateCodes, letter,
+                data.CharacterCodesSorted, word, ref equals, data.CharacterCodes, index,
                 out all_occurences);
 
                 DisplayGuessOutcome(letter, all_occurences);
@@ -115,23 +155,12 @@ namespace WordsGuesser
 
             return isChar;
         }
-        private static void UpdateGuessedLetters(ref List<int> guessed, ref int guesses, int letter_code)
+        private static void UpdateGuessedLetters(GameData data, int letter_code)
         {
-            guessed.Add(letter_code);
-            int[] sorted = MergeSort.runSort(guessed.ToArray());
-            guessed = new List<int>(sorted);
-            guesses++;
-        }
-
-        private static Dictionary<string, string> CreateGameInfo(char[] current, string word, string category, List<int> missed, int availableGuesses)
-        {
-            return new Dictionary<string, string>()
-            {
-                {"wordLength", word.Length.ToString()},
-                {"board", WordsList.generateBoard(current)},
-                {"category", category},
-                {"guesses_left", (availableGuesses - missed.Count).ToString()},
-            };
+            data.Guessed.Add(letter_code);
+            int[] sorted = MergeSort.runSort(data.Guessed.ToArray());
+            data.Guessed = new List<int>(sorted);
+            data.Guesses++;
         }
 
         private static void DisplayGuessOutcome(char letter, int[] all_occurences)
