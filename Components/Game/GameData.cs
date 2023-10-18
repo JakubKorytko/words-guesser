@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using WordsGuesser.Words;
+using WordsGuesser.Algorithms;
 
-namespace WordsGuesser.Components
+namespace WordsGuesser.GameLogic
 {
     internal class GameData
     {

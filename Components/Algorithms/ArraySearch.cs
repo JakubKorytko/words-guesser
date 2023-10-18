@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace WordsGuesser
+namespace WordsGuesser.Algorithms
 {
     internal class ArraySearch
     {

@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using WordsGuesser.Components;
 using WordsGuesser.Words;
+using WordsGuesser.Algorithms;
+using WordsGuesser.Interface;
 
-namespace WordsGuesser
+using static WordsGuesser.Interface.Errors.ERROR_CODES;
+
+namespace WordsGuesser.GameLogic
 {
-
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Game.Start();
-        }
-    }
-
     internal static class Game
     {
+
+        private const int GuessesLimit = 6;
 
         public static void Start()
         {
@@ -27,16 +20,14 @@ namespace WordsGuesser
 
             while (play)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("WordsGuesser");
-                Console.ResetColor();
+                InputOutput.DisplayGameTitle();
 
                 // {word, category}
                 string[] wordData = WordsList.randomWord();
 
-                result = PlayGame(wordData[0], wordData[1], 6);
+                result = PlayGame(wordData[0], wordData[1], GuessesLimit);
 
-                play = Interface.End(result, wordData[0]) != 2;
+                play = InputOutput.HandleEndGameIO(result, wordData[0]) != 2;
             }
         }
 
@@ -50,13 +41,13 @@ namespace WordsGuesser
 
                 if (!GetUserGuess(data, out char letter))
                 {
-                    Interface.Error("Please enter one character!");
+                    InputOutput.DisplayError(ERROR__ONLY_ONE_CHARACTER);
                     continue;
                 }
 
                 if (ArraySearch.Binary(data.Guessed.ToArray(), 0, data.Guesses - 1, letter) != -1)
                 {
-                    Interface.Error("You already used that letter!");
+                    InputOutput.DisplayError(ERROR__LETTER_ALREADY_USED);
                     continue;
                 }
 
@@ -65,7 +56,7 @@ namespace WordsGuesser
                 if (data.GetLetterIndex(letter) == -1)
                 {
                     data.Missed.Add(letter);
-                    Interface.Error("No letter in the password!");
+                    InputOutput.DisplayError(ERROR__NO_LETTER_IN_THE_PASSWORD);
                     continue;
                 }
 
@@ -76,7 +67,7 @@ namespace WordsGuesser
                     data.UpdateCurrentState(letter);
                 }
 
-                DisplayGuessOutcome(letter, all_occurences);
+                InputOutput.DisplayGuessOutcome(letter, all_occurences.Length.ToString());
             }
 
             return data.IsWordGuessed;
@@ -86,20 +77,13 @@ namespace WordsGuesser
         {
             Dictionary<string, string> info = data.GetTextGameInfo();
 
-            string input = Interface.Input(info, data.Missed.ToArray(), data.Missed.Count);
+            string input = InputOutput.HandleLetterIO(info, data.Missed.ToArray(), data.Missed.Count);
 
             bool isChar = char.TryParse(input, out letter);
 
-            Console.Clear();
+            InputOutput.Clear();
 
             return isChar;
-        }
-
-        private static void DisplayGuessOutcome(char letter, int[] all_occurences)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(all_occurences.Length.ToString() + " letters " + letter + " in the password!");
-            Console.ResetColor();
         }
 
     }

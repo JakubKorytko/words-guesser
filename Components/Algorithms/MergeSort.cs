@@ -1,4 +1,4 @@
-﻿namespace WordsGuesser
+﻿namespace WordsGuesser.Algorithms
 {
     internal class MergeSort
     {

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using WordsGuesser.Interface;
 
-namespace WordsGuesser
+namespace WordsGuesser.Interface
 {
-    internal class Interface
+
+    internal class InputOutput
     {
-        public static string Input(Dictionary<string, string> info, int[] missed, int misses)
+        public static string HandleLetterIO(Dictionary<string, string> info, int[] missed, int misses)
         {
 
             Console.WriteLine("---------\n");
@@ -34,7 +36,7 @@ namespace WordsGuesser
             return inpt;
         }
 
-        public static int End(bool won, string word)
+        public static int HandleEndGameIO(bool won, string word)
         {
             Console.Clear();
             Console.WriteLine("The password was: " + word + "\n");
@@ -60,11 +62,30 @@ namespace WordsGuesser
             return decision;
         }
 
-        public static void Error(string message)
+        public static void DisplayError(Errors.ERROR_CODES code)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
+            Console.WriteLine(Errors.GetErrorMessage(code));
             Console.ResetColor();
+        }
+
+        public static void DisplayGuessOutcome(char letter, string letters_count)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(letters_count + " letters " + letter + " in the password!");
+            Console.ResetColor();
+        }
+
+        public static void DisplayGameTitle()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("WordsGuesser");
+            Console.ResetColor();
+        }
+
+        public static void Clear()
+        {
+            Console.Clear();
         }
     }
 }

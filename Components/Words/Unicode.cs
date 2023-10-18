@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WordsGuesser
+namespace WordsGuesser.Words
 {
     internal class Unicode
     {
