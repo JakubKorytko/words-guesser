@@ -16,7 +16,7 @@ namespace WordsGuesser
             else return Binary(array, p, s - 1, sz);
         }
     
-        static public int[] FindIndicesInRange(int[] array, int pos)
+        static public int[] FindDuplicatesAroundIndex(int[] array, int pos)
         {
             if (array.Length == 0) return new int[0];
 

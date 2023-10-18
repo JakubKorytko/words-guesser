@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Algorithms\BinarySearch.cs" />
+    <Compile Include="Components\Algorithms\ArraySearch.cs" />
     <Compile Include="Components\Algorithms\MergeSort.cs" />
+    <Compile Include="Components\GameData.cs" />
     <Compile Include="Components\Interface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
