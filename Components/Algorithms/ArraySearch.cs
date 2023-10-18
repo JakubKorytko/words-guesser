@@ -2,9 +2,9 @@
 
 namespace WordsGuesser
 {
-    internal class BinarySearch
+    internal class ArraySearch
     {
-        static public int Find(int[] array, int p, int k, int sz)
+        static public int Binary(int[] array, int p, int k, int sz)
         {
             if (array.Length == 0 || p > k) return -1;
 
@@ -12,11 +12,11 @@ namespace WordsGuesser
 
             if (array[s] == sz) return s;
 
-            if (array[s] < sz) return Find(array, s + 1, k, sz);
-            else return Find(array, p, s - 1, sz);
+            if (array[s] < sz) return Binary(array, s + 1, k, sz);
+            else return Binary(array, p, s - 1, sz);
         }
     
-        static public int[] FindDuplicates(int[] array, int pos)
+        static public int[] FindIndicesInRange(int[] array, int pos)
         {
             if (array.Length == 0) return new int[0];
 
