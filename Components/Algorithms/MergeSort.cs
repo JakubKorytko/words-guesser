@@ -1,8 +1,8 @@
 ﻿namespace WordsGuesser.Algorithms
 {
-    internal class MergeSort
+    internal static class MergeSort
     {
-        public static int[] runSort(int[] array)
+        public static int[] RunSort(int[] array)
         {
             if (array.Length < 2) return array;
 
@@ -20,13 +20,13 @@
                 right[i - mid] = array[i];
             }
 
-            runSort(left);
-            runSort(right);
-            array = merge(left, right, array);
+            RunSort(left);
+            RunSort(right);
+            array = Merge(left, right, array);
 
             return array;
         }
-        public static int[] merge(int[] left, int[] right, int[] result)
+        public static int[] Merge(int[] left, int[] right, int[] result)
         {
             int i = 0, j = 0;
 

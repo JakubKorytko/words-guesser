@@ -2,9 +2,9 @@
 
 namespace WordsGuesser.Words
 {
-    internal class Unicode
+    internal static class Unicode
     {
-        public static int[] convertTo(char[] text)
+        public static int[] ConvertTo(char[] text)
         {
             int[] result = new int[text.Length];
             int index = 0;
@@ -14,7 +14,7 @@ namespace WordsGuesser.Words
             return result;
         }
 
-        public static char[] convertFrom(int[] codes)
+        public static char[] ConvertFrom(int[] codes)
         {
             char[] result = new char[codes.Length];
             int index = 0;

@@ -23,7 +23,7 @@ namespace WordsGuesser.GameLogic
                 InputOutput.DisplayGameTitle();
 
                 // {word, category}
-                string[] wordData = WordsList.randomWord();
+                string[] wordData = WordsList.RandomWord();
 
                 result = PlayGame(wordData[0], wordData[1], GuessesLimit);
 

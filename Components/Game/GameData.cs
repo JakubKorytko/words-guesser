@@ -42,12 +42,12 @@ namespace WordsGuesser.GameLogic
             Guesses = 0;
 
             Characters = Word.ToCharArray();
-            CharacterCodes = Unicode.convertTo(Characters);
+            CharacterCodes = Unicode.ConvertTo(Characters);
             CurrentState = Enumerable.Repeat('_', Characters.Length).ToArray();
 
             Guessed = new List<int>();
             Missed = new List<int>();
-            CharacterCodesSorted = MergeSort.runSort((int[])CharacterCodes.Clone());
+            CharacterCodesSorted = MergeSort.RunSort((int[])CharacterCodes.Clone());
 
             CurrentState = Enumerable.Repeat('_', CharacterCodes.Length).ToArray();
             ConvertCurrentStateToCodes();
@@ -58,7 +58,7 @@ namespace WordsGuesser.GameLogic
             return new Dictionary<string, string>()
             {
                 {"wordLength", Word.Length.ToString()},
-                {"board", WordsList.generateBoard(CurrentState)},
+                {"board", WordsList.GenerateBoard(CurrentState)},
                 {"category", Category},
                 {"guesses_left", (AvailableGuesses - Missed.Count).ToString()},
             };
@@ -66,13 +66,13 @@ namespace WordsGuesser.GameLogic
 
         public void ConvertCurrentStateToCodes()
         {
-            CurrentStateCodes = Unicode.convertTo(CurrentState);
+            CurrentStateCodes = Unicode.ConvertTo(CurrentState);
         }
 
         public void UpdateGuessedLetters(int letter_code)
         {
             Guessed.Add(letter_code);
-            int[] sorted = MergeSort.runSort(Guessed.ToArray());
+            int[] sorted = MergeSort.RunSort(Guessed.ToArray());
             Guessed = new List<int>(sorted);
             Guesses++;
         }

@@ -2,7 +2,7 @@
 {
     internal class Word
     {
-        public string value;
-        public string category;
+        public string value = "";
+        public string category = "";
     }
 }

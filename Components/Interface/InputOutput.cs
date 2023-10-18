@@ -5,7 +5,7 @@ using WordsGuesser.Interface;
 namespace WordsGuesser.Interface
 {
 
-    internal class InputOutput
+    internal static class InputOutput
     {
         public static string HandleLetterIO(Dictionary<string, string> info, int[] missed, int misses)
         {
@@ -32,7 +32,7 @@ namespace WordsGuesser.Interface
             Console.Write("\nGuess the letter: ");
 
             string inpt = Console.ReadLine();
-            
+
             return inpt;
         }
 

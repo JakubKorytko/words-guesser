@@ -1,13 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json.Linq;
 
 namespace WordsGuesser.Words
 {
-    internal class WordsList
+    internal static class WordsList
     {
 
-        private static Word[] list
+        private static Word[] Content
         {
             get
             {
@@ -16,22 +17,22 @@ namespace WordsGuesser.Words
             }
         }
 
-        static public string[] randomWord()
+        static public string[] RandomWord()
         {
             Random randomGen = new Random();
-            int rnd = randomGen.Next(0, list.Length);
-            Word word = list[rnd];
-            return new string[] { word.value, word.category};
+            int rnd = randomGen.Next(0, Content.Length);
+            Word word = Content[rnd];
+            return new string[] { word.value, word.category };
         }
 
-        static public string generateBoard(char[] letters)
+        static public string GenerateBoard(char[] letters)
         {
-            string board = "";
+            StringBuilder board = new StringBuilder();
             foreach (char letter in letters)
             {
-                board += letter+" ";
+                board.Append(letter + " ");
             }
-            return board;
+            return board.ToString();
         }
     }
 }
