@@ -22,12 +22,11 @@ namespace WordsGuesser.GameLogic
             {
                 InputOutput.DisplayGameTitle();
 
-                // {word, category}
-                string[] wordData = WordsList.RandomWord();
+                Word word = WordsList.RandomWord();
 
-                result = PlayGame(wordData[0], wordData[1], GuessesLimit);
+                result = PlayGame(word.value, word.category, GuessesLimit);
 
-                play = InputOutput.HandleEndGameIO(result, wordData[0]) != 2;
+                play = InputOutput.HandleEndGameIO(result, word.value) != 2;
             }
         }
 
