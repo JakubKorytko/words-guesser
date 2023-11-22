@@ -1,0 +1,52 @@
+﻿[
+    {
+        "categoryName": "countries",
+        "words": [
+            "portugal",
+            "australia",
+            "switzerland",
+            "germany",
+            "italy"
+        ]
+    },
+    {
+        "categoryName": "currencies",
+        "words": [
+            "yuan",
+            "euro",
+            "dollar",
+            "yen",
+            "pound"
+        ]
+    },
+    {
+        "categoryName": "animals",
+        "words": [
+            "giraffe",
+            "capybara",
+            "elephant",
+            "snake",
+            "turtle"
+        ]
+    },
+    {
+        "categoryName": "vegetables",
+        "words": [
+            "tomato",
+            "potato",
+            "cucumber",
+            "carrot",
+            "asparagus"
+        ]
+    },
+    {
+        "categoryName": "fruits",
+        "words": [
+            "watermelon",
+            "banana",
+            "apple",
+            "orange",
+            "mango"
+        ]
+    }
+]
