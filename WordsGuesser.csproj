@@ -67,6 +67,7 @@
     <Compile Include="Components\Game\GameData.cs" />
     <Compile Include="Components\Interface\Errors.cs" />
     <Compile Include="Components\Interface\InputOutput.cs" />
+    <Compile Include="Components\Words\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordsGuesser.cs" />
     <Compile Include="Components\Words\Unicode.cs" />
