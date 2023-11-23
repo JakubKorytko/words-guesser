@@ -14,11 +14,11 @@ namespace WordsGuesser.Words
         {
             Word[] words = categories
                 .SelectMany(category => category.words
-                    .Select(word => new Word 
-                        {
-                            category=category.categoryName,
-                            value=word
-                        }
+                    .Select(word => new Word
+                    {
+                        category = category.categoryName,
+                        value = word
+                    }
                     )
                 )
                 .ToArray();

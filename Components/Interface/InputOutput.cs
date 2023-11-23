@@ -72,7 +72,7 @@ namespace WordsGuesser.Interface
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Choice: ");
-            
+
             Console.ResetColor();
 
             int decision = 0;
